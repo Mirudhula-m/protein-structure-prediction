@@ -1,3 +1,6 @@
 [submodule "RFdiffusion"]
 	path = RFdiffusion
 	url = https://github.com/RosettaCommons/RFdiffusion.git
+[submodule "dl_binder_design"]
+	path = dl_binder_design
+	url = https://github.com/nrbennet/dl_binder_design.git
