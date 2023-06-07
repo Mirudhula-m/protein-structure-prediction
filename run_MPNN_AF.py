@@ -34,6 +34,7 @@ parser.add_argument('-rm_aa', '--rm_aa', type=str, default="C")
 
 parser.add_argument('-name', '--name', type=str, required=True)
 parser.add_argument('-pdb', '--pdb', type=str, required=True)
+parser.add_argument('-trb', '--trb', type=str, required=True)
 parser.add_argument('-loc', '--loc', type=str, required=True)
 
 parser.add_argument('-num_designs', '--num_designs', type=int, default=10)
@@ -53,6 +54,7 @@ rm_aa = args.rm_aa
 
 name = args.name
 pdb = args.pdb
+trb = args.trb
 loc = args.loc
 
 num_designs = args.num_designs
@@ -66,6 +68,7 @@ contig = args.contig
 #     time.sleep(5)
 
 opts = [f"--pdb={pdb}",
+		f"--trb={trb}",
         f"--loc={loc}",
         f"--contigs={contig}",
         f"--copies={copies}",
