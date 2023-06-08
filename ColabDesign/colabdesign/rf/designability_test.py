@@ -358,8 +358,11 @@ def main(argv):
         out["design"].append(m)
         out["n"].append(n)
         sub_seq = out["seq"][n].replace("/","")[-af_model._len:]
+        print("our_rmsd1=",out["rmsd"])
         af_model.predict(seq=sub_seq, num_recycles=o.num_recycles, verbose=False)
+        print("our_rmsd2=",out["rmsd"])
         for t in af_terms: out[t].append(af_model.aux["log"][t])
+        print("our_rmsd3=",out["rmsd"])
         if "i_pae" in out:
           out["i_pae"][-1] = out["i_pae"][-1] * 31
         if "pae" in out:
@@ -384,10 +387,12 @@ def main(argv):
       print("$$$$",fin_data)
       af_model.save_pdb(f"{o.loc}/best_design{m}.pdb")
 
+  
   # save best
   with open(f"{o.loc}/best.pdb", "w") as handle:
     remark_text = f"design {best['design']} N {best['n']} RMSD {best['rmsd']:.3f}"
     handle.write(f"REMARK 001 {remark_text}\n")
+    handle.write(f"{o.contigs}\n")
     handle.write(open(f"{o.loc}/best_design{best['design']}.pdb", "r").read())
     
   labels[2] = "mpnn"
